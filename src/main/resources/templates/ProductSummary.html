@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Product Purchase Summary</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+     <div>
+        <p>Here are the details of your recent purchase:</p>
+        <img src="http://www.liuhaihua.cn/wp-content/uploads/2024/03/qrcodeWithLogo.jpg" alt="Product QR Code">
+        <p>Please find below the details of the products you purchased:</p>
+        <table>
+            <tr><th>Product</th><th>Quantity</th><th>Price</th><th>Total</th></tr>
+            <tr th:each="item : ${purchase.products}">
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.quantity}"></td>
+                <td th:text="${item.price}"></td>
+                <td th:text="${item.price * item.quantity}"></td>
+            </tr>
+        </table>
+         <label>
+             Confirm your purchase
+             <input type="checkbox">
+         </label>
+     </div>
+</body>
+</html>
